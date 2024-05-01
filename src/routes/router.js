@@ -3,11 +3,16 @@ import ErrorPage from "../components/ErrorPage";
 import LoginForm from "../components/auth/LoginForm";
 import RegisterPage from "../components/auth/RegisterPage";
 import { Dashboard } from "../pages/Dashboard";
+import SecureContent from "../components/auth/SecureContent";
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <div>Hello world!</div>,
+    element: (
+      <SecureContent>
+        <div>Hello world!</div>
+      </SecureContent>
+    ),
     errorElement: <ErrorPage errorCode={404} errorMessage={"Oops !"} />,
   },
   {
